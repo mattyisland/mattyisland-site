@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Matty Island — A Family of Ventures</title>
+<meta name="description" content="Matty Island is a family of entertainment and technology ventures. Home of Crossword ENT.">
+<!-- Social preview card -->
+<meta property="og:title" content="Matty Island">
+<meta property="og:description" content="A family of entertainment and technology ventures. Home of Crossword ENT.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://mattyisland.com">
+<link rel="icon" type="image/svg+xml" href="assets/matty-island-logo.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #10233F;
+    --navy-deep: #0A1B33;
+    --ink: #1A2E52;
+    --sand: #F7EFE2;
+    --sand-deep: #EFE2CC;
+    --gold: #C9A24B;
+    --gold-soft: #E3C98A;
+    --coral: #FF5E7A;
+    --white: #FFFFFF;
+    --grey: #5B6B82;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', system-ui, sans-serif; color: var(--ink); background: var(--white); line-height: 1.6; }
+
+  /* ---------- Top bar ---------- */
+  header {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(16, 35, 63, 0.96); backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(201, 162, 75, 0.25);
+  }
+  .bar { max-width: 1100px; margin: 0 auto; padding: 18px 24px; display: flex; align-items: center; justify-content: space-between; }
+  .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+  .brand svg { display: block; }
+  .brand-name { color: var(--white); font-family: 'Playfair Display', serif; font-size: 14px; letter-spacing: 2px; font-weight: 700; }
+  nav a {
+    color: rgba(255,255,255,0.85); text-decoration: none; font-size: 14px; font-weight: 500;
+    margin-left: 28px; letter-spacing: 0.5px; transition: color .2s;
+  }
+  nav a:hover { color: var(--gold-soft); }
+
+  /* ---------- Hero ---------- */
+  .hero {
+    background:
+      radial-gradient(1200px 500px at 50% -10%, #1D3A63 0%, var(--navy) 55%, var(--navy-deep) 100%);
+    color: var(--white); text-align: center;
+    padding: 168px 24px 120px;
+    position: relative; overflow: hidden;
+  }
+  .hero::after {  /* subtle golden horizon line */
+    content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 4px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    opacity: .8;
+  }
+  .hero .mark { margin-bottom: 30px; position: relative; }
+  .hero .mark::before {   /* soft sunset glow behind the badge */
+    content: ''; position: absolute; left: 50%; top: 50%; width: 340px; height: 340px;
+    transform: translate(-50%,-50%); border-radius: 50%;
+    background: radial-gradient(circle, rgba(255,158,94,0.18) 0%, rgba(255,158,94,0) 70%);
+    pointer-events: none;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif; font-size: clamp(34px, 5.5vw, 56px);
+    letter-spacing: 5px; font-weight: 700;
+  }
+  .hero h1 .accent { color: var(--gold-soft); }
+  .hero .rule {
+    width: 72px; height: 3px; background: var(--gold); margin: 26px auto; border-radius: 2px;
+  }
+  .hero p.tag {
+    font-size: clamp(17px, 2.2vw, 21px); color: rgba(255,255,255,0.85);
+    max-width: 620px; margin: 0 auto; font-weight: 400; letter-spacing: 0.3px;
+  }
+  .hero .cta { margin-top: 44px; }
+  .btn {
+    display: inline-block; text-decoration: none; font-weight: 600; font-size: 15px; letter-spacing: 1px;
+    padding: 15px 36px; border-radius: 10px; transition: transform .15s, box-shadow .15s;
+  }
+  .btn-gold {
+    background: linear-gradient(135deg, var(--gold-soft), var(--gold));
+    color: var(--navy-deep); box-shadow: 0 6px 24px rgba(201,162,75,0.35);
+  }
+  .btn-gold:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(201,162,75,0.45); }
+
+  /* ---------- Sections ---------- */
+  section { padding: 96px 24px; }
+  .wrap { max-width: 1100px; margin: 0 auto; }
+  .kicker {
+    color: var(--gold); font-size: 13px; font-weight: 700; letter-spacing: 3px;
+    text-transform: uppercase; text-align: center; margin-bottom: 14px;
+  }
+  h2 {
+    font-family: 'Playfair Display', serif; font-size: clamp(30px, 4.5vw, 42px);
+    text-align: center; color: var(--navy); letter-spacing: 1px; margin-bottom: 18px;
+  }
+  .lede { max-width: 680px; margin: 0 auto; text-align: center; color: var(--grey); font-size: 17px; }
+
+  /* About */
+  .about { background: var(--white); }
+  .values {
+    margin-top: 40px; display: flex; justify-content: center; align-items: center; gap: 18px;
+    flex-wrap: wrap; color: var(--navy); font-size: 13px; font-weight: 600;
+    letter-spacing: 2.5px; text-transform: uppercase;
+  }
+  .values .dot { color: var(--gold); font-size: 20px; }
+
+  /* Products */
+  .products { background: linear-gradient(180deg, var(--sand) 0%, var(--sand-deep) 100%); }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 28px; margin-top: 56px; }
+  .card {
+    background: var(--white); border-radius: 18px; padding: 40px 34px;
+    border-top: 3px solid var(--gold);
+    box-shadow: 0 8px 30px rgba(16,35,63,0.08);
+    border: 1px solid rgba(16,35,63,0.05);
+    display: flex; flex-direction: column;
+    transition: transform .18s, box-shadow .18s;
+  }
+  .card:hover { transform: translateY(-4px); box-shadow: 0 14px 40px rgba(16,35,63,0.12); }
+  .card .badge {
+    align-self: flex-start; font-size: 11px; font-weight: 700; letter-spacing: 1.5px;
+    padding: 5px 12px; border-radius: 999px; margin-bottom: 22px; text-transform: uppercase;
+  }
+  .badge-live { background: #E9FBF3; color: #00885A; }
+  .badge-soon { background: #FFF2D9; color: #9A7017; }
+  .card h3 { font-family: 'Playfair Display', serif; font-size: 24px; color: var(--navy); margin-bottom: 10px; letter-spacing: .5px; }
+  .card p { color: var(--grey); font-size: 15.5px; flex: 1; }
+  .card .link {
+    margin-top: 26px; color: var(--navy); font-weight: 600; font-size: 14.5px; letter-spacing: .5px;
+    text-decoration: none; border-bottom: 2px solid var(--gold); align-self: flex-start; padding-bottom: 2px;
+    transition: color .2s;
+  }
+  .card .link:hover { color: var(--gold); }
+  .tiles { display: flex; gap: 6px; margin-bottom: 20px; }
+  .tile {
+    width: 40px; height: 40px; border-radius: 9px; display: flex; align-items: center; justify-content: center;
+    font-weight: 800; font-size: 20px; font-family: 'Inter', sans-serif;
+    box-shadow: 0 3px 8px rgba(16,35,63,0.15);
+  }
+  .tile-cream { background: #FFFBF2; color: var(--ink); border: 1px solid #EADFC8; }
+  .tile-coral { background: var(--coral); color: var(--white); transform: rotate(-4deg); }
+  .mini-logo { margin-bottom: 22px; }
+
+  /* Contact */
+  .contact { background: var(--navy); color: var(--white); text-align: center; }
+  .contact h2 { color: var(--white); }
+  .contact .lede { color: rgba(255,255,255,0.75); }
+  .contact .cta { margin-top: 36px; }
+
+  footer {
+    background: var(--navy-deep); color: rgba(255,255,255,0.55);
+    padding: 30px 24px; font-size: 13px; letter-spacing: .5px;
+  }
+  footer .gold { color: var(--gold-soft); }
+  .foot { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+  .foot-links a { color: rgba(255,255,255,0.55); text-decoration: none; margin-left: 20px; transition: color .2s; }
+  .foot-links a:hover { color: var(--gold-soft); }
+
+  @media (max-width: 560px) {
+    nav a { margin-left: 16px; font-size: 13px; }
+    .hero { padding: 140px 20px 90px; }
+    section { padding: 72px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- shared defs: the Matty Island mark (B21) -->
+<svg width="0" height="0" style="position:absolute">
+  <defs>
+    <linearGradient id="sunG" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FFD97A"/><stop offset="1" stop-color="#FF7E5E"/>
+    </linearGradient>
+    <linearGradient id="goldG" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#E3C98A"/><stop offset="1" stop-color="#C9A24B"/>
+    </linearGradient>
+    <linearGradient id="palmG" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#3FA46A"/><stop offset="1" stop-color="#1E7A48"/>
+    </linearGradient>
+    <linearGradient id="sea1G" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#5FA8DC"/><stop offset="1" stop-color="#2E77B8"/>
+    </linearGradient>
+    <linearGradient id="sea2G" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#2E77B8"/><stop offset="1" stop-color="#1D5F8A"/>
+    </linearGradient>
+    <g id="miBadge">
+      <rect x="14" y="24" width="172" height="172" rx="20" fill="#0F1E36" stroke="url(#goldG)" stroke-width="3.5"/>
+      <g transform="translate(6.5,9.2) scale(0.9)"><use href="#miMark"/></g>
+    </g>
+    <g id="miMark">
+      <clipPath id="miAbove"><path d="M0 0 H200 V132 L168 132 Q133 148 98 132 Q63 116 28 132 L0 132 Z"/></clipPath>
+      <circle cx="74" cy="88" r="32" fill="url(#sunG)"/>
+      <g stroke="#0F1E36" stroke-width="10" fill="none" stroke-linecap="round">
+        <path d="M28 132 Q63 116 98 132 Q133 148 168 132"/>
+        <path d="M36 154 Q67 140 98 154 Q129 168 160 154"/>
+      </g>
+      <g fill="none" stroke-linecap="round">
+        <path d="M28 132 Q63 116 98 132 Q133 148 168 132" stroke="#E3C98A" stroke-width="6"/>
+        <path d="M36 154 Q67 140 98 154 Q129 168 160 154" stroke="#C9A24B" stroke-width="6"/>
+      </g>
+      <path d="M130 130 C 137 112, 139 96, 135 80 L 139 77 C 144 94, 143 112, 135 130 Z" fill="url(#goldG)"/>
+      <g fill="url(#goldG)">
+        <g transform="translate(137,78)">
+          <path transform="rotate(18) scale(0.54)" d="M0 0 C 15 -13, 34 -19, 48 -17 C 50 -17, 50 -15, 48 -14 C 34 -12, 17 -4, 4 6 C 1 7, -1 4, 0 0 Z"/>
+          <path transform="rotate(38) scale(0.58)" d="M0 0 C 16 -12, 38 -15, 56 -7 C 58 -6, 58 -5, 56 -5 C 40 -6, 20 -1, 4 7 C 1 8, -1 4, 0 0 Z"/>
+          <path transform="scale(-1,1) rotate(18) scale(0.54)" d="M0 0 C 15 -13, 34 -19, 48 -17 C 50 -17, 50 -15, 48 -14 C 34 -12, 17 -4, 4 6 C 1 7, -1 4, 0 0 Z"/>
+          <path transform="scale(-1,1) rotate(38) scale(0.58)" d="M0 0 C 16 -12, 38 -15, 56 -7 C 58 -6, 58 -5, 56 -5 C 40 -6, 20 -1, 4 7 C 1 8, -1 4, 0 0 Z"/>
+        </g>
+      </g>
+    </g>
+  </defs>
+</svg>
+
+<header>
+  <div class="bar">
+    <a class="brand" href="#top">
+      <svg width="26" height="26" viewBox="10 20 180 180" aria-hidden="true"><use href="#miBadge"/></svg>
+      <span class="brand-name">MATTY ISLAND</span>
+    </a>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#products">Products</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <!-- HERO -->
+  <div class="hero">
+    <div class="mark">
+      <svg width="118" height="118" viewBox="10 20 180 180" style="position:relative" aria-label="Matty Island logo"><use href="#miBadge"/></svg>
+    </div>
+    <h1>MATTY <span class="accent">ISLAND</span></h1>
+    <div class="rule"></div>
+    <p class="tag">Where great software begins, and new ventures set sail.</p>
+    <div class="cta">
+      <a class="btn btn-gold" href="#products">Explore Our Products</a>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <section class="about" id="about">
+    <div class="wrap">
+      <div class="kicker">Who We Are</div>
+      <h2>An Island of Ideas</h2>
+      <p class="lede">
+        Matty Island is an independent application development company based in Florida, dedicated
+        to crafting polished software experiences that bring people together and empower them to
+        succeed. Software is only the beginning; as the company grows, we intend to carry that same
+        standard of quality into new industries and new forms of business.
+      </p>
+      <div class="values">
+        <span>Founded in Florida 2016</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCTS -->
+  <section class="products" id="products">
+    <div class="wrap">
+      <div class="kicker">What We Make</div>
+      <h2>Our Products</h2>
+      <p class="lede">The current lineup — with more on the way.</p>
+      <div class="grid">
+        <div class="card">
+          <div class="tiles" aria-hidden="true">
+            <div class="tile tile-cream">E</div>
+            <div class="tile tile-coral">N</div>
+            <div class="tile tile-cream">T</div>
+          </div>
+          <span class="badge badge-soon">Coming Soon</span>
+          <h3>Crossword ENT</h3>
+          <p>
+            Crossword entertainment for everyone. Trivia-powered crossword puzzles across ten topics,
+            with solo sprints, head-to-head battles, and team-based group battles — race the clock,
+            or race the room.
+          </p>
+          <a class="link" href="https://crosswordent.com" target="_blank" rel="noopener">crosswordent.com →</a>
+        </div>
+        <div class="card">
+          <div class="mini-logo">
+            <svg width="54" height="54" viewBox="10 20 180 180" aria-hidden="true"><use href="#miBadge"/></svg>
+          </div>
+          <span class="badge badge-soon">In the Works</span>
+          <h3>The Next Venture</h3>
+          <p>
+            The island is always growing. New products and experiences are in development —
+            check back soon for future releases.
+          </p>
+          <a class="link" href="#contact">Get in touch →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+    <div class="wrap">
+      <div class="kicker" style="color: var(--gold-soft)">Say Hello</div>
+      <h2>Contact</h2>
+      <p class="lede">Have feedback you'd like to share? We'd love to hear from you!</p>
+      <div class="cta">
+        <a class="btn btn-gold" href="mailto:feedback@mattyisland.com">feedback@mattyisland.com</a>
+      </div>
+      <p style="margin-top: 30px; color: rgba(255,255,255,0.5); font-size: 13px; letter-spacing: 2px;">MATTY ISLAND &nbsp;·&nbsp; FLORIDA, USA</p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="foot" style="justify-content:center;">
+    <div style="display:flex; align-items:center; gap:12px;">
+      <svg width="26" height="26" viewBox="10 20 180 180" aria-hidden="true"><use href="#miBadge"/></svg>
+      <span>© 2026 <span class="gold">Matty Island LLC</span>. All rights reserved.</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
