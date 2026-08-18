@@ -37,13 +37,14 @@
     background: rgba(16, 35, 63, 0.96); backdrop-filter: blur(8px);
     border-bottom: 1px solid rgba(201, 162, 75, 0.25);
   }
-  .bar { max-width: 1100px; margin: 0 auto; padding: 18px 24px; display: flex; align-items: center; justify-content: space-between; }
+  .bar { max-width: 1100px; margin: 0 auto; padding: 26px 24px; display: flex; align-items: center; justify-content: space-between; }
   .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
   .brand svg { display: block; }
-  .brand-name { color: var(--white); font-family: 'Playfair Display', serif; font-size: 14px; letter-spacing: 2px; font-weight: 700; }
+  .brand-name { color: var(--white); font-family: 'Playfair Display', serif; font-size: 18px; letter-spacing: 2.2px; font-weight: 700; white-space: nowrap; }
+  nav { display: flex; align-items: center; white-space: nowrap; }
   nav a {
-    color: rgba(255,255,255,0.85); text-decoration: none; font-size: 14px; font-weight: 500;
-    margin-left: 28px; letter-spacing: 0.5px; transition: color .2s;
+    color: rgba(255,255,255,0.85); text-decoration: none; font-size: 16px; font-weight: 500;
+    margin-left: 30px; letter-spacing: 0.5px; transition: color .2s;
   }
   nav a:hover { color: var(--gold-soft); }
 
@@ -164,7 +165,10 @@
   .foot-links a:hover { color: var(--gold-soft); }
 
   @media (max-width: 560px) {
-    nav a { margin-left: 16px; font-size: 13px; }
+    .bar { padding: 18px 14px; }
+    .brand { gap: 8px; }
+    .brand-name { font-size: 13px; letter-spacing: 1.2px; }
+    nav a { margin-left: 13px; font-size: 12.5px; }
     .hero { padding: 140px 20px 90px; }
     section { padding: 72px 20px; }
   }
@@ -221,7 +225,7 @@
 <header>
   <div class="bar">
     <a class="brand" href="#top">
-      <svg width="26" height="26" viewBox="10 20 180 180" aria-hidden="true"><use href="#miBadge"/></svg>
+      <svg width="34" height="34" viewBox="10 20 180 180" aria-hidden="true"><use href="#miBadge"/></svg>
       <span class="brand-name">MATTY ISLAND</span>
     </a>
     <nav>
