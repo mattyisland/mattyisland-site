@@ -1,7 +1,8 @@
 # Matty Island — mattyisland.com
 
 Official business website for **Matty Island LLC** — an independent application
-development company based in Florida. Home of Crossword ENT.
+development company based in Florida. Home of Crossword ENT — see the crossword
+project's [[PROJECT_STATUS]] for live product state and [[CLAUDE]] for its build rules.
 
 - `index.html` — the complete site (static, single file, no build step)
 - `assets/matty-island-logo.svg` — the official logo (vector master)
